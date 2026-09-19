@@ -3,12 +3,22 @@
   "version": "0.0.0",
   "type": "module",
   "main": "src/main.ts",
+  "exports": {
+    ".": "./dist/main.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
     "start": "node src/main.ts",
     "test": "node --test"
   },
   "devDependencies": {
-    "@types/node": "^26.6.2"
+    "@types/node": "^26.6.2",
+    "tsdown": "^0.23.0"
   },
   "peerDependencies": {
     "typescript": "^7.0.2"
