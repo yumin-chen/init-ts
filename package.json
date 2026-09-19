@@ -1,0 +1,10 @@
+{
+  "name": "@lib/module",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "node src/main.ts",
+    "test": "node --test"
+  }
+}
