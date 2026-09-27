@@ -8,6 +8,7 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "types": ["node"],
+    "allowArbitraryExtensions": true,
 
     // Bundler mode
     "moduleResolution": "bundler",
@@ -35,6 +36,7 @@
     // Some stricter flags
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
     "noPropertyAccessFromIndexSignature": true
   }
 }
