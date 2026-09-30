@@ -13,11 +13,17 @@ export default defineConfig({
       resolveDepSubpath: true,
     },
   },
+  test: {
+    include: ["src/**/*.{test,spec}.ts"],
+  },
   staged: {
     "*": "vp check --fix",
   },
-  fmt: {},
+  fmt: {
+    ignore: ["examples/**"],
+  },
   lint: {
+    ignorePatterns: ["examples/**"],
     jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
     rules: { "vite-plus/prefer-vite-plus-imports": "error" },
     options: { typeAware: true, typeCheck: true },

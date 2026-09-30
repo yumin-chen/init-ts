@@ -3,6 +3,13 @@ build
 out
 dist
 target
+*.node
+*.wasm
+*.wasi.cjs
+*.wasi.d.cts
+*.wasi-browser.js
+wasi-worker*.mjs
+browser.js
 
 # dependencies
 vendor
