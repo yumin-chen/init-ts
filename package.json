@@ -13,14 +13,14 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "tsx scripts/cross-build.ts && vp pack",
-    "build:napi": "tsx scripts/cross-build.ts",
-    "build:release": "tsx scripts/cross-build.ts --release",
-    "ci": "tsx scripts/cross-build.ts",
-    "ci:ts": "tsx scripts/cross-build.ts",
-    "ci:build": "tsx scripts/cross-build.ts --target-all",
+    "build": "node --import @oxc-node/core/register scripts/cross-build.ts && vp pack",
+    "build:napi": "node --import @oxc-node/core/register scripts/cross-build.ts",
+    "build:release": "node --import @oxc-node/core/register scripts/cross-build.ts --release",
+    "ci": "node --import @oxc-node/core/register scripts/cross-build.ts",
+    "ci:ts": "node --import @oxc-node/core/register scripts/cross-build.ts",
+    "ci:build": "node --import @oxc-node/core/register scripts/cross-build.ts --target-all",
     "ci:test": "vp test",
-    "ci:cross-build": "tsx scripts/cross-build.ts --target-all",
+    "ci:cross-build": "node --import @oxc-node/core/register scripts/cross-build.ts --target-all",
     "ci:publish": "vp pack",
     "dev": "vp pack --watch",
     "start": "vp run src/main.ts",
@@ -35,10 +35,10 @@
     "@emnapi/core": "^1.11.3",
     "@emnapi/runtime": "^1.11.3",
     "@napi-rs/cli": "^3.10.5",
+    "@oxc-node/core": "^0.1.3",
     "@types/node": "^26.6.2",
     "@voidzero-dev/vite-task-client": "^0.2.0",
     "emnapi": "^1.11.3",
-    "tsx": "^4.23.15",
     "vite-plus": "^1.0.0-rc.1"
   },
   "peerDependencies": {

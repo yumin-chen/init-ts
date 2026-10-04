@@ -33,7 +33,7 @@ export default defineConfig({
   },
   tasks: {
     "ci:build": {
-      command: "tsx scripts/cross-build.ts --target-all",
+      command: "node --import @oxc-node/core/register scripts/cross-build.ts --target-all",
       cache: {
         input: [{ auto: true }, "!dist/**", "!target/**"],
         output: ["dist/**"],
@@ -41,7 +41,7 @@ export default defineConfig({
       },
     },
     "ci:cross-build": {
-      command: "tsx scripts/cross-build.ts --target-all",
+      command: "node --import @oxc-node/core/register scripts/cross-build.ts --target-all",
       cache: {
         input: [{ auto: true }, "!dist/**", "!target/**"],
         output: ["dist/**"],
