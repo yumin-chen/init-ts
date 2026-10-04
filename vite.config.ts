@@ -17,7 +17,7 @@ export default defineConfig({
     include: ["src/**/*.{test,spec}.ts"],
   },
   staged: {
-    "*": "vp check --fix",
+    "*": ["vp check --fix", "npm run ci -- --dry-run"],
   },
   fmt: {
     ignore: ["examples/**"],
@@ -30,5 +30,36 @@ export default defineConfig({
   },
   run: {
     cache: true,
+  },
+  tasks: {
+    "ci:build": {
+      command: "tsx scripts/cross-build.ts --target-all",
+      cache: {
+        input: [{ auto: true }, "!dist/**", "!target/**"],
+        output: ["dist/**"],
+        env: ["DEBUG", "NODE_ENV", "MACOSX_DEPLOYMENT_TARGET"],
+      },
+    },
+    "ci:cross-build": {
+      command: "tsx scripts/cross-build.ts --target-all",
+      cache: {
+        input: [{ auto: true }, "!dist/**", "!target/**"],
+        output: ["dist/**"],
+        env: ["DEBUG", "NODE_ENV", "MACOSX_DEPLOYMENT_TARGET"],
+      },
+    },
+    "ci:test": {
+      command: "vp test",
+      cache: {
+        input: [{ auto: true }],
+      },
+    },
+    "ci:publish": {
+      command: "vp pack",
+      cache: {
+        input: [{ auto: true }, "!dist/**"],
+        output: ["dist/**"],
+      },
+    },
   },
 });
