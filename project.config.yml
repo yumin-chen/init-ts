@@ -1,0 +1,7 @@
+name: data
+owner: alloy-ts
+description:
+repositories: 
+ - https://codeberg.org/alloy-ts/data
+ - https://gitlab.com/alloy-ts/data
+ - https://github.com/alloy-ts/data
