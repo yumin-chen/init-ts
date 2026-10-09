@@ -1,5 +1,5 @@
 {
-  "name": "@lib/module",
+  "name": "@lib/data",
   "version": "0.0.0",
   "files": [
     "dist",
