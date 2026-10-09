@@ -6,10 +6,18 @@ edition = "2021"
 [lib]
 crate-type = ["cdylib"]
 
+[features]
+default = []
+spark-connect = ["dep:sail-common", "dep:sail-spark-connect"]
+spark-shell = ["spark-connect", "dep:pyo3"]
+
 [dependencies]
-datafusion = "55.2.0"
-napi = "3"
+datafusion = { version = "55.2.0", features = ["avro", "json"] }
+napi = { version = "3", features = ["tokio_rt"] }
 napi-derive = "3"
-tokio = { version = "1.53.2", features = ["rt-multi-thread"] }
+tokio = { version = "1.53.2", features = ["rt-multi-thread", "net", "sync"] }
+sail-common = { git = "https://github.com/lakehq/sail", tag = "v0.7.2", optional = true }
+sail-spark-connect = { git = "https://github.com/lakehq/sail", tag = "v0.7.2", optional = true }
+pyo3 = { version = "0.29", optional = true }
 [build-dependencies]
 napi-build = "2"

@@ -1,3 +1,10 @@
+#[cfg(feature = "spark-shell")]
+mod cli;
+mod data_frame;
+mod sql;
+#[cfg(feature = "spark-connect")]
+mod spark_connect;
+
 use napi_derive::napi;
 
 #[napi]
