@@ -1,0 +1,7 @@
+name: projects
+owner: @user
+description:
+remote:
+  - codeberg.org
+  - gitlab.com
+  - github.com
